@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * bitonic_compare - sort the values in a sub-array with respect to
+ * bitonic_sort - sort the values in a sub-array with respect to
  * the Bitonic sort algorithm
  * @up: direction of sorting
  * @array: sub-array to sort
@@ -10,7 +10,7 @@
  *
  * Return: void
  */
-void bitonic_compare(char up, int *array, size_t size)
+void bitonic_sort(char up, int *array, size_t size)
 {
 	size_t i, dist;
 	int swap;
@@ -39,7 +39,7 @@ void bitonic_merge(char up, int *array, size_t size)
 {
 	if (size < 2)
 		return;
-	bitonic_compare(up, array, size);
+	bitonic_sort(up, array, size);
 	bitonic_merge(up, array, size / 2);
 	bitonic_merge(up, array + (size / 2), size / 2);
 }
