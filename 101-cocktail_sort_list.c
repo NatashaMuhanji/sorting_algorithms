@@ -1,12 +1,12 @@
 #include "sort.h"
 /**
- * swap1 - swaps nodes from left to right
+ * swapping_A - swaps nodes from left to right
  * @list: pointer to list
  * @head: pointer to head node
  * @aux: auxiliar pointer
  * Return: no return
  */
-void swap1(listint_t **list, listint_t *head, listint_t *aux)
+void swapping_A(listint_t **list, listint_t *head, listint_t *aux)
 {
 	if (head->prev)
 		head->prev->next = aux;
@@ -22,13 +22,13 @@ void swap1(listint_t **list, listint_t *head, listint_t *aux)
 
 }
 /**
- * swap2 - swaps nodes from right to left
+ * swapping_B - swaps nodes from right to left
  * @list: pointer to list
  * @head: pointer to head node
  * @aux: auxiliar pointer
  * Return: no return
  */
-void swap2(listint_t **list, listint_t *head, listint_t *aux)
+void swapping_B(listint_t **list, listint_t *head, listint_t *aux)
 {
 	aux = head->prev;
 	aux->next->prev = aux->prev;
@@ -66,7 +66,7 @@ void cocktail_sort_list(listint_t **list)
 				if (head->n > head->next->n)
 				{
 					aux = head->next;
-					swap1(list, head, aux);
+					swapping_A(list, head, aux);
 					flag = 1;
 				}
 				else
@@ -79,7 +79,7 @@ void cocktail_sort_list(listint_t **list)
 			{
 				if (head->prev->n > head->n)
 				{
-					swap2(list, head, aux);
+					swapping_B(list, head, aux);
 					flag = 1;
 				}
 				else
