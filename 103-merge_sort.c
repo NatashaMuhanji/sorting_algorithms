@@ -3,20 +3,20 @@
 #include <stdio.h>
 
 /**
- * _merge_sort - initiate merge sort
+ * merge - initiate merge sort
  * @array: array to be sorted
  * @temp: temporary array for holding sorted elements
  * @size: size of the array
  */
-void _merge_sort(int *array, int *temp, size_t size)
+void merge(int *array, int *temp, size_t size)
 {
 	size_t half = size / 2, i = 0, j = 0, k;
 
 	if (size < 2)
 		return;
 
-	_merge_sort(array, temp, half);
-	_merge_sort(array + half, temp + half, size - half);
+	merge(array, temp, half);
+	merge(array + half, temp + half, size - half);
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -56,6 +56,6 @@ void merge_sort(int *array, size_t size)
 	if (!temp)
 		return;
 
-	_merge_sort(array, temp, size);
+	merge(array, temp, size);
 	free(temp);
 }
