@@ -1,11 +1,11 @@
 #include "sort.h"
 /**
- * max_val - gets max value from array
+ * maximum_value - gets max value from array
  * @array: pointer to array
  * @size: size of the array
  * Return: max value from array
  */
-int max_val(int *array, size_t size)
+int maximum_value(int *array, size_t size)
 {
 	int max = array[0];
 	size_t i;
@@ -32,7 +32,7 @@ void radix_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	max = max_val(array, size);
+	max = maximum_value(array, size);
 
 	new_arr = malloc(sizeof(int) * size);
 	while (max / e > 0)
